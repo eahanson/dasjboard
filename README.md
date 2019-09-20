@@ -8,6 +8,7 @@ A sample developer dashboard written in Clojure.
 [ ] Circle CI
 [ ] Basic dashboard grid
 [ ] Show Circle CI status on dashboard
+[ ] Live update
 [ ] [Deploy](https://github.com/technomancy/leiningen/blob/master/doc/TUTORIAL.md#server-side-projects)
 [ ] Show last deploy date on dashboard
 
