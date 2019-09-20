@@ -3,4 +3,4 @@
 set -e
 
 source ./bin/dev/doctor-local
-lein ring server
+lein run
