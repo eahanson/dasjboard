@@ -5,4 +5,5 @@ set -e
 source "bin/_support/step.sh"
 
 step "Pulling" "git pull --rebase"
+step "Updating deps" "lein deps"
 step "Running doctor" "bin/dev/doctor-local"

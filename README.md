@@ -4,7 +4,7 @@ A sample developer dashboard written in Clojure.
 
 ## TODO
 
-- [ ] Web server
+- [x] Web server
 - [ ] Circle CI
 - [ ] Basic dashboard grid
 - [ ] Show Circle CI status on dashboard
