@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+source "bin/_support/step.sh"
+
+bin/dev/doctor-local
+
+step "Pulling" "git pull --rebase"
+step "Running doctor" "bin/dev/doctor-local"

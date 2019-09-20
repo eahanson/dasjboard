@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+source ./bin/dev/doctor-local
+# todo: start web server

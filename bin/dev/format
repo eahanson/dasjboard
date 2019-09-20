@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source "${HOME}/.asdf/asdf.sh"
+test -e ".envrc" && source ".envrc"
+
+# todo: find a good formatter for clojure
+# PATH=$ASDF_DIR/shims:$ASDF_DIR/bin:$PATH mix format $*

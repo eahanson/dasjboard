@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
+set -e
 
-lein test
+source "bin/_support/step.sh"
+
+step "checking for errors" "lein check"
+step "running tests" "lein test"

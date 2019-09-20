@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+bin/dev/doctor-local
+echo ""
+
+#circleci config validate
+bin/dev/test
+git push

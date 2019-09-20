@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+source "bin/_support/step.sh"
+source "bin/_support/check.sh"
+
+check "homebrew: bundled?" \
+  "brew bundle check"  \
+  "brew bundle install"
+
+check "direnv: .envrc file exists" \
+  "head .envrc" \
+  "touch .envrc"
+
+check "asdf: java plugin installed" \
+  "asdf plugin-list | grep java" \
+  "asdf plugin-add java"
+
+check "asdf: clojure plugin installed" \
+  "asdf plugin-list | grep clojure" \
+  "asdf plugin-add clojure"
+
+check "asdf: nodejs plugin exists?" \
+  "asdf plugin-list | grep nodejs" \
+  "asdf plugin-add nodejs && bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+
+check "asdf: tools are installed" \
+  "asdf which java > /dev/null && asdf which clj > /dev/null && asdf which node > /dev/null" \
+  "asdf install"
+
+check "ssh: key is added (so github can be reached)" \
+  "ssh-add -L | grep -e '\.ssh/id_rsa\$'" \
+  "ssh-add ~/.ssh/id_rsa"
+
