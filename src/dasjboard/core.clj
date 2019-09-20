@@ -12,8 +12,18 @@
            (route/resources "/")
            (ANY "*" [] (route/not-found (layout/application "Page Not Found" (contents/not-found)))))
 
-(def application (wrap-reload (handler/site routes)))
+(def application (handler/site routes))
+
+(defn- get-env->int [env-var]
+  (->> env-var
+       (System/getenv)
+       (or "8080")
+       (Integer/parseInt)))
 
 (defn -main []
-  (let [port (Integer/parseInt (or (System/getenv "PORT") "8080"))]
+  (let [port (get-env->int "PORT")]
     (jetty/run-jetty application {:port port :join? false})))
+
+(defn -dev-main []
+  (let [port (get-env->int "PORT")]
+    (jetty/run-jetty (wrap-reload #'application) {:port port :join? false})))

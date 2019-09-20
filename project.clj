@@ -11,4 +11,5 @@
                  [ring/ring-devel "1.7.1"]]
   :main dasjboard.core
   :repl-options {:init-ns dasjboard.core}
+  :profiles {:dev {:main dasjboard.core/-dev-main}}
   :plugins [[lein-ancient "0.6.15"]])
